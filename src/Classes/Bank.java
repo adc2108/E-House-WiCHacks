@@ -42,7 +42,7 @@ public class Bank extends Stock{
             return "Cannot Invest " + investment + " amount";
         }
         else {
-            updateBalance(investment);
+            updateStockBalance(investment);
             return "Invested " + investment + " into Stocks";
         }
     }
