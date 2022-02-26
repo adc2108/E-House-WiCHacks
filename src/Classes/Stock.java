@@ -1,21 +1,21 @@
 package Classes;
 
 public class Stock {
-    private double stockBalance;
+    private static double stockBalance;
 
     public Stock() {
         stockBalance = 0;
     }
 
-    public double getStockBalance() {
-        return this.stockBalance;
+    public static double getStockBalance() {
+        return stockBalance;
     }
 
-    public void updateStockBalance(double invest){
+    public void increaseStockBalance(double invest){
         stockBalance += invest;
     }
 
-    public void endInvestment() {
+    public void decreaseStockBalance(double amount) {
         stockBalance = 0;
     }
 

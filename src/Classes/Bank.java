@@ -1,6 +1,6 @@
 package Classes;
 
-public class Bank extends Stock{
+public class Bank {
     private double accountBalance;
     private final static int WEEKLY = 100;
 
@@ -21,15 +21,15 @@ public class Bank extends Stock{
      * get account balance
      * @return account balance
      */
-    public double getAccountBalance() {
+    public double getBankBalance() {
         return this.accountBalance;
     }
 
-    public void increaseAccountBalance(double amount) {
+    public void increaseBankBalance(double amount) {
         this.accountBalance += amount;
     }
 
-    public void decreaseAccountBalance(double amount) {
+    public void decreaseBankBalance(double amount) {
         this.accountBalance -= amount;
     }
 
@@ -42,7 +42,7 @@ public class Bank extends Stock{
             return "Cannot Invest " + investment + " amount";
         }
         else {
-            updateStockBalance(investment);
+            increaseBankBalance(investment);
             return "Invested " + investment + " into Stocks";
         }
     }

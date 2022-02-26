@@ -1,14 +1,15 @@
 package Classes;
 
-public class Child extends Parent{
+public class Child extends Bank{
     private double cashIn;
 
     public Child() {
+        super();
         cashIn = 0;
     }
 
     public String viewAccountBalance() {
-        return "Account Balance: " + super.getAccountBalance();
+        return "Account Balance: " + getBankBalance();
     }
 
     public void CashIN(double amount) {
@@ -16,8 +17,9 @@ public class Child extends Parent{
     }
 
     public String invest(double amount) {
-        if(amount <= getAccountBalance()) {
-            updateStockBalance(amount);
+        if(amount <= getBankBalance()) {
+            Stock stock = new Stock();
+            stock.increaseStockBalance(amount);
             return "Invested " + amount + " in stocks!";
         }
         else{
@@ -26,9 +28,9 @@ public class Child extends Parent{
     }
 
     public String endInvest() {
-        double amount = this.getStockBalance();
-        this.increaseAccountBalance(getStockBalance());
-        endInvestment();
+        double amount = getBankBalance();
+        this.increaseBankBalance(Stock.getStockBalance());
+        decreaseBankBalance(0);
         return "Your investment has ended and " + amount + " has been added back to your account";
     }
 

@@ -8,9 +8,15 @@ public class Parent extends Bank{
     private double value;
 
     public Parent(){
+        super();
         this.value = 0;
         this.prize = null;
     }
+
+    public String viewAccountBalance() {
+        return "Balance: " + getBankBalance();
+    }
+
 
     public void setPrize(String[] prize, double value){
         this.prize = prize;
@@ -22,8 +28,8 @@ public class Parent extends Bank{
     }
 
     public String acceptCashIN(double amount) {
-        if(amount <= getAccountBalance()) {
-            this.decreaseAccountBalance(amount);
+        if(amount <= getBankBalance()) {
+            this.decreaseBankBalance(amount);
             return "Amount Accepted !";
         }
         else {

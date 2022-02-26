@@ -31,13 +31,18 @@ public class RunProgram {
         System.out.println("How much are these prizes worth? ");
         int value = Integer.parseInt(br.readLine());
         parent.setPrize(prizesTwo, value);
-        System.out.println(parent.viewPrize());
+        System.out.println((parent.viewPrize()));
 
-        System.out.println("You entered: " + value);
-        String sentence;
-        System.out.println("Enter a sentence:");
-        sentence = br.readLine();
-        System.out.println("You entered: " + sentence);
+        System.out.println(child.getBankBalance());
+        System.out.println("CHECK UPDATE ACCOUNT");
+        bank.updateAccount();
+        child.updateAccount();
+        System.out.println("CHECK Bank getBALANCE");
+        System.out.println(bank.getBankBalance());
+        System.out.println("CHECK CHILD getBALANCE");
+        System.out.println(child.getBankBalance());
+        System.out.println();
+
 
 
 
