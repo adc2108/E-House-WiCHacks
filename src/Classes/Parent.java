@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.Arrays;
+
 public class Parent extends Bank{
 
     private String[] prize;
@@ -10,12 +12,16 @@ public class Parent extends Bank{
         this.prize = null;
     }
 
-    private void setPrize(String[] prize, double value){
+    public void setPrize(String[] prize, double value){
         this.prize = prize;
         this.value = value;
     }
 
-    private String acceptCashIN(double amount) {
+    public String viewPrize() {
+        return "Prizes are: " + Arrays.toString(this.prize) + " and they are worth: " + this.value;
+    }
+
+    public String acceptCashIN(double amount) {
         if(amount <= getAccountBalance()) {
             this.decreaseAccountBalance(amount);
             return "Amount Accepted !";
