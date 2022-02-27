@@ -3,7 +3,7 @@ This repository is dedicated to the WiCHackathon! It was the first repository an
 Our team/authors consists of Second-Year Electrical Engineer, Tianna Seitz and First-Year Computer Engineer, Alexandra Ciesielka.
 
 Our work includes source code for a java financial literacy simulation. This simulation is Parent-Child based, with the parent setting incentives for a child.
-There are classes Bank, Stock, Child, Parent and RunProgram. No testing has been done and on the code, and there could be some more tests to account for user
+There are classes Bank, Stock, Child, Parent and RunProgram. No testing has been done on the code, and there could be some more tests to account for user
 error and design error. 
 
 The goal of the simulation/game is for the child to learn how to manage money at a younger age. A work in progress GUI was created to connect methods from 
