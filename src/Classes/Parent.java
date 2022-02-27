@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 public class Parent {
     private Bank bank;
+    private Stock stock;
     private double oldValue;
     private String[] prize;
     private double value;
 
-    public Parent(Bank bank){
+    public Parent(Bank bank, Stock stock){
         this.bank = bank;
+        this.stock = stock;
         this.value = 0;
         this.prize = null;
     }

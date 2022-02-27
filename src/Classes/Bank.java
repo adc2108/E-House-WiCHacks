@@ -2,14 +2,16 @@ package Classes;
 
 public class Bank {
     private double accountBalance;
+
     private final static int WEEKLY = 100;
 
     public Bank() {
         this.accountBalance = 0;
+
     }
 
     /**
-     * Updates account balance by 50.
+     * Updates account balance by 100.
      * Every week call update account balance
      */
     public void updateAccount(){

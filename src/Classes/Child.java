@@ -2,11 +2,13 @@ package Classes;
 
 public class Child {
     private Bank bank;
+    private Stock stock;
     private double cashIN;
 
-    public Child(Bank bank) {
+    public Child(Bank bank, Stock stock) {
         cashIN = 0;
         this.bank = bank;
+        this.stock = stock;
     }
 
 
@@ -26,8 +28,8 @@ public class Child {
 
     public String invest(double amount) {
         if(amount <= bank.getBankBalance()) {
-            Stock stock = new Stock();
             stock.increaseStockBalance(amount);
+            bank.decreaseBankBalance(amount);
             return "Invested " + amount + " in stocks!";
         }
         else{
@@ -35,21 +37,16 @@ public class Child {
         }
     }
 
-    public String endInvest() {
-        double amount = bank.getBankBalance();
-        bank.increaseBankBalance(Stock.getStockBalance());
-        bank.decreaseBankBalance(0);
-        return "Your investment has ended and " + amount + " has been added back to your account";
+    public String endInvest(boolean end) {
+        if(end) {
+
+            double amount = bank.getBankBalance();
+            bank.increaseBankBalance(stock.getStockBalance());
+            stock.voidStock();
+            return "Your investment has ended and " + amount + " has been added back to your account";
+        }
+        else {
+            return "Good Choice! ";
+        }
     }
-
- //   public String invest(double investment) {
-   //     if(investment > getBankBalance()) {
-     //       return "Cannot Invest " + investment + " amount";
-       // }
-      //  else {
-        //    increaseBankBalance(investment);
-         //   return "Invested " + investment + " into Stocks";
-       // }
-   // }
-
 }
