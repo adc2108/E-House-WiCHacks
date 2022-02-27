@@ -42,9 +42,8 @@ public class Stock {
     }
 
     public void stockChange() {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        int pull = this.list.get(0);
+        Random r = new Random();
+        int pull = this.list.get(r.nextInt(list.size()));
         if(rand >= 2) {
             System.out.println("Congrats! " + pull + " Has been added to your stock");
             increaseStockBalance(pull);
@@ -52,8 +51,16 @@ public class Stock {
         }
         else {
             System.out.println("Your stock has dropped and " + pull + " Has been removed from your stock: ");
-            decreaseStockBalance(pull);
-            System.out.println("Your new balance is " + getStockBalance());
+            if(getStockBalance() <= pull) {
+                double remove = pull - getStockBalance();
+                bank.decreaseBankBalance(remove);
+                voidStock();
+                System.out.println(remove + " has been removed from your Bank Account : (");
+            }
+            else {
+                decreaseStockBalance(pull);
+                System.out.println("Your new balance is " + getStockBalance());
+            }
         }
 
     }

@@ -11,6 +11,9 @@ public class Child {
         this.stock = stock;
     }
 
+    public String viewPrizes() {
+        return null;
+    }
 
     public String viewAccountBalance() {
         return "Account Balance: " + bank.getBankBalance();
@@ -27,19 +30,17 @@ public class Child {
     }
 
     public String invest(double amount) {
-        if(amount <= bank.getBankBalance()) {
+        if (amount <= bank.getBankBalance()) {
             stock.increaseStockBalance(amount);
             bank.decreaseBankBalance(amount);
             return "Invested " + amount + " in stocks!";
-        }
-        else{
+        } else {
             return "Cannot invest " + amount + "because account balance is too low";
         }
     }
 
     public String endInvest(boolean end) {
         if(end) {
-
             double amount = bank.getBankBalance();
             bank.increaseBankBalance(stock.getStockBalance());
             stock.voidStock();

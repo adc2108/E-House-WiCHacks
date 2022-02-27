@@ -3,7 +3,7 @@ package Classes;
 public class Bank {
     private double accountBalance;
 
-    private final static int WEEKLY = 100;
+    private final static int WEEKLY = 50;
 
     public Bank() {
         this.accountBalance = 0;
