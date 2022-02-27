@@ -10,15 +10,14 @@ import java.io.InputStreamReader;
 
 public class RunProgram {
 
-
     public RunProgram() {
     }
 
     //Test Functionality before GUI
     public static void main(String[] args) throws Exception{
-        Parent parent = new Parent();
-        Child child = new Child();
         Bank bank = new Bank();
+        Parent parent = new Parent(bank);
+        Child child = new Child(bank);
         Stock stock = new Stock();
 
 
@@ -33,18 +32,16 @@ public class RunProgram {
         parent.setPrize(prizesTwo, value);
         System.out.println((parent.viewPrize()));
 
-        System.out.println(child.getBankBalance());
+        System.out.println(bank.getBankBalance());
         System.out.println("CHECK UPDATE ACCOUNT");
         bank.updateAccount();
-        child.updateAccount();
         System.out.println("CHECK Bank getBALANCE");
-        System.out.println(bank.getBankBalance());
+        System.out.println(child.viewAccountBalance());
         System.out.println("CHECK CHILD getBALANCE");
-        System.out.println(child.getBankBalance());
-        System.out.println();
-
-
-
-
+        System.out.println(bank.getBankBalance());
+        System.out.println("TEST CASHIN" + "\n" + "Cashin IN: ");
+        double cash = Integer.parseInt(br.readLine());
+        System.out.println(child.CashIn(cash));
+        System.out.println(bank.getBankBalance());
     }
 }

@@ -5,8 +5,7 @@ public class Bank {
     private final static int WEEKLY = 100;
 
     public Bank() {
-        Stock stock = new Stock();
-        accountBalance = 0;
+        this.accountBalance = 0;
     }
 
     /**
@@ -22,29 +21,15 @@ public class Bank {
      * @return account balance
      */
     public double getBankBalance() {
-        return this.accountBalance;
+        return accountBalance;
     }
 
     public void increaseBankBalance(double amount) {
-        this.accountBalance += amount;
+        accountBalance += amount;
     }
 
     public void decreaseBankBalance(double amount) {
-        this.accountBalance -= amount;
-    }
-
-    /**
-     * invest money in stock
-     * Can't exceed account balance
-     */
-    public String invest(double investment) {
-        if(investment > this.accountBalance) {
-            return "Cannot Invest " + investment + " amount";
-        }
-        else {
-            increaseBankBalance(investment);
-            return "Invested " + investment + " into Stocks";
-        }
+        accountBalance -= amount;
     }
 
 }

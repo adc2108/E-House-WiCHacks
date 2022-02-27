@@ -2,19 +2,20 @@ package Classes;
 
 import java.util.Arrays;
 
-public class Parent extends Bank{
-
+public class Parent {
+    private Bank bank;
+    private double oldValue;
     private String[] prize;
     private double value;
 
-    public Parent(){
-        super();
+    public Parent(Bank bank){
+        this.bank = bank;
         this.value = 0;
         this.prize = null;
     }
 
     public String viewAccountBalance() {
-        return "Balance: " + getBankBalance();
+        return "Balance: " + bank.getBankBalance();
     }
 
 
@@ -25,15 +26,5 @@ public class Parent extends Bank{
 
     public String viewPrize() {
         return "Prizes are: " + Arrays.toString(this.prize) + " and they are worth: " + this.value;
-    }
-
-    public String acceptCashIN(double amount) {
-        if(amount <= getBankBalance()) {
-            this.decreaseBankBalance(amount);
-            return "Amount Accepted !";
-        }
-        else {
-            return "Your Account Balance does not have enough funds";
-        }
     }
 }
